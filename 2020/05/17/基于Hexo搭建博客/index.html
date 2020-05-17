@@ -279,8 +279,9 @@ $ hexo s</code></pre><ul>
 <p>详见<a href="https://www.jianshu.com/p/254794d5e741" target="_blank" rel="noopener">npm和yarn的区别，我们该如何选择?</a></p>
 <h2 id="Hexo无法解析模板文件"><a href="#Hexo无法解析模板文件" class="headerlink" title="Hexo无法解析模板文件"></a>Hexo无法解析模板文件</h2><p>网页预览出现以下情况</p>
 <blockquote>
-<p>&lt;%- partial(‘_partial/head’) %&gt;&lt;%- partial(‘_partial/header’) %&gt;&lt;%- body %&gt;&lt;% if (theme.sidebar &amp;&amp; theme.sidebar !== ‘bottom’){ %&gt; &lt;%- partial(‘_partial/sidebar’) %&gt; &lt;% } %&gt;&lt;%- partial(‘_partial/footer’) %&gt;&lt;%- partial(‘_partial/mobile-nav’) %&gt;&lt;%- partial(‘_partial/after-footer’) %&gt;<br>可以使用以下命令</p>
+<p>&lt;%- partial(‘_partial/head’) %&gt;&lt;%- partial(‘_partial/header’) %&gt;&lt;%- body %&gt;&lt;% if (theme.sidebar &amp;&amp; theme.sidebar !== ‘bottom’){ %&gt; &lt;%- partial(‘_partial/sidebar’) %&gt; &lt;% } %&gt;&lt;%- partial(‘_partial/footer’) %&gt;&lt;%- partial(‘_partial/mobile-nav’) %&gt;&lt;%- partial(‘_partial/after-footer’) %&gt;</p>
 </blockquote>
+<p>可以使用以下命令</p>
 <pre><code>npm install hexo-renderer-ejs --save
 npm install hexo-renderer-stylus --save
 npm install hexo-renderer-marked --save</code></pre><hr>
