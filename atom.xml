@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title></title>
+  
+  <subtitle>/</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-17T01:40:27.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jocelyn Wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于Hexo搭建博客</title>
+    <link href="http://yoursite.com/2020/05/17/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2020/05/17/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2020-05-17T01:40:27.000Z</published>
+    <updated>2020-05-17T01:40:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>因为我是直接在Windows上搭建的，许多网上的攻略侧重从并没有详细描述，遇到了许多问题，所以本文将一些经验记录下来，以供参考。</p></blockquote><h1 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h1><p><strong>Hexo</strong> 是一个快速、简洁且高效的博客框架,使用 <code>Markdown</code>（或其他渲染引擎）解析文章，短时间内利用靓丽的主题生成静态网页托管在<code>GitHub</code>和<code>Coding</code>上</p><h1 id="Hexo-搭建步骤"><a href="#Hexo-搭建步骤" class="headerlink" title="Hexo 搭建步骤"></a>Hexo 搭建步骤</h1><h2 id="1-安装-Git"><a href="#1-安装-Git" class="headerlink" title="1. 安装 Git"></a>1. 安装 Git</h2><p><strong>Git</strong> 是目前世界上最先进的分布式版本控制系统，其强大之处此处不再赘述。</p><p><strong>操作步骤：</strong></p><ul><li>Windows：下载并安装 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a> 。</li><li>Mac：使用 Homebrew, MacPorts ：<code>brew install git</code>；或下载<code>安装程序</code>安装。</li><li>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code></li><li>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></li></ul><p>具体安装的操作可参见廖雪峰老师的 <a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">Git教程</a> ，老师写得很详细，非常适合新手。</p><p>安装后，用<code>git --version</code> 来查看一下版本(也可以在 <em>git bash</em> 里查看 <code>$ git version</code>)</p><h2 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h2><p><code>Node.js</code> 是一个<code>Javascript</code>运行环境，实质是对<code>Chrome V8</code>引擎进行了封装。<code>Node.js</code> 是一个<em>事件驱动I/O服务端JavaScript环境</em>，基于<code>Google</code>的V8引擎（执行<code>Javascript</code>的速度快，性能好）。</p><p>详细可阅读<a href="https://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">Node.js 菜鸟教程</a>。</p><h3 id="Node-js下载"><a href="#Node-js下载" class="headerlink" title="Node.js下载"></a>Node.js下载</h3><ul><li>在<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js官网</a>找到自己想要的版本并下载；</li><li>打开安装包后，一直Next即可。Node.js 默认的安装位置为<code>C:\Program Files</code>（安装位置可修改）；</li><li>安装完后，打开 DOS 命令界面，输入以下代码即可验证是否安装成功<pre><code>node -vnpm -v</code></pre><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3></li><li>说明：环境配置的目的主要是为了改变安装NodeJS依赖的下载位置，方便日后管理，以及配置缓存Cache的路径。*<h4 id="（1）创建npm模块安装目录"><a href="#（1）创建npm模块安装目录" class="headerlink" title="（1）创建npm模块安装目录"></a>（1）创建npm模块安装目录</h4>安装时，默认是使用国外的镜像，速度较慢。可改换成 <a href="https://blog.csdn.net/quuqu/article/details/64121812" target="_blank" rel="noopener">国内镜像</a><br>分别在 Node.js 安装目录下创建 <code>node_cache</code> 和 <code>node_global</code> 两个文件夹，然后打开dos命令窗口，执行下面两行命令<pre><code>npm config set prefix &quot;D:\MySoftware\nodejs\node_global&quot;npm config set cache &quot;D:\MySoftware\nodejs\node_cache&quot;</code></pre><h4 id="（2）配置环境变量"><a href="#（2）配置环境变量" class="headerlink" title="（2）配置环境变量"></a>（2）配置环境变量</h4><blockquote><p>我的电脑-&gt;右键-&gt;属性-&gt;高级系统设置-&gt;高级-&gt;环境变量<br>详见<a href="https://blog.csdn.net/zhangkaidsy/article/details/86645070?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158968251919724845053005%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=158968251919724845053005&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v25-1-86645070.nonecase&utm_term=nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">环境配置</a></p></blockquote></li></ul><h2 id="3-安装-Hexo"><a href="#3-安装-Hexo" class="headerlink" title="3. 安装 Hexo"></a>3. 安装 Hexo</h2><pre><code>$ npm install -g hexo-cli</code></pre><h1 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h1><h2 id="1-创建-GitHub-仓库"><a href="#1-创建-GitHub-仓库" class="headerlink" title="1. 创建 GitHub 仓库"></a>1. 创建 GitHub 仓库</h2><p>进入 GitHub 新建 <code>repo</code><br><em>注意 这里的仓库名称要和你的  <code>username</code> 对应，创建一个和你用户名相同的仓库，后面加 <code>.github.io</code></em></p><h2 id="2-生成SSH添加到GitHub"><a href="#2-生成SSH添加到GitHub" class="headerlink" title="2. 生成SSH添加到GitHub"></a>2. 生成SSH添加到GitHub</h2><pre><code>git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot;</code></pre><p>然后创建SSH,一路回车</p><pre><code>ssh-keygen -t rsa -C &quot;youremail&quot;</code></pre><blockquote><p><code>ssh</code> 就是一个密钥，其中，<code>id_rsa</code> 是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code> 是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过 <code>git</code> 上传你的文件到 <code>GitHub</code>上。</p></blockquote><p>在<code>GitHub</code>的<code>setting</code>中，找到<code>SSH keys</code>的设置选项，点击<code>New SSH key</code><br>把<code>id_rsa.pub</code>里面的信息复制进去。<br>在gitbash中，查看是否成功</p><pre><code>ssh -T git@github.com</code></pre><h2 id="3-将hexo部署到GitHub"><a href="#3-将hexo部署到GitHub" class="headerlink" title="3. 将hexo部署到GitHub"></a>3. 将hexo部署到GitHub</h2><p>安装 Hexo 完成后，执行下列命令</p><pre><code>$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install</code></pre><p>修改配置文件 <code>_config.yml</code> 中 <code>deploy</code> 字段，完成部署的相关配置</p><pre><code>deploy:  type: git  repo: https://github.com/YourgithubName/YourgithubName.github.io.git  branch: master</code></pre><ul><li><code>type</code> 字段对应的是部署的服务器类型，填写 <code>git</code> 即可</li><li><code>repo</code> 是之前创建的 github 仓库的地址</li><li><code>branch</code> 是文件的分支，默认是 <code>master</code></li></ul><p>完成上述配置后，在终端执行 <code>npm install hexo-deployer-git --save</code></p><h2 id="4-生成网站"><a href="#4-生成网站" class="headerlink" title="4. 生成网站"></a>4. 生成网站</h2><p>运行以下命令，访问 <code>http://localhost:4000/</code> 就可看到效果</p><pre><code>$ hexo clean$ hexo g$ hexo s</code></pre><ul><li><code>hexo clean</code> 是为了清除缓存，和已经生成的静态文件(publish文件夹)</li><li><code>hexo g</code> 是命令 <code>hexo generate</code> 的简写，生成静态文件</li><li><code>hexo s</code> 是命令 <code>hexo server</code> 的简写</li></ul><p>看到效果后，可以通过命令 <code>$ hexo d</code> （即 <code>$ hexo deploy</code>）将网站进行部署</p><p>完成以上步骤后，可以访问链接 <code>https://username.github.io/</code> 看到博客</p><h2 id="5-配置-Nginx-（可选"><a href="#5-配置-Nginx-（可选" class="headerlink" title="5. 配置 Nginx （可选)"></a>5. 配置 Nginx （可选)</h2><p><strong>Nginx</strong> 是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少，并发能力强（中国大陆使用Nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等）。</p><p><a href="https://blog.csdn.net/kingscoming/article/details/79042874" target="_blank" rel="noopener">windows 下安装配置 Nginx 详解</a></p><h2 id="6-设置个人域名（可选）"><a href="#6-设置个人域名（可选）" class="headerlink" title="6. 设置个人域名（可选）"></a>6. 设置个人域名（可选）</h2><p>可注册一个阿里云账户,在阿里云上买一个域名<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">设置参考</a></p><h2 id="7-构建接口服务（可选）"><a href="#7-构建接口服务（可选）" class="headerlink" title="7.构建接口服务（可选）"></a>7.构建接口服务（可选）</h2><p>详见<a href="https://segmentfault.com/a/1190000018082781" target="_blank" rel="noopener">构建接口服务</a></p><h1 id="个性化定制"><a href="#个性化定制" class="headerlink" title="个性化定制"></a>个性化定制</h1><h2 id="1-Hexo-基本配置"><a href="#1-Hexo-基本配置" class="headerlink" title="1. Hexo 基本配置"></a>1. Hexo 基本配置</h2><p>详见<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置</a></p><h2 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2.更换主题"></a>2.更换主题</h2><p>可以在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官网的主题</a>中，选择你喜欢的一个主题进行修改<br>将主题的地址克隆到博客目录的<code>themes</code>下，举例如下</p><pre><code>$ git clone https://github.com/klugjo/hexo-theme-anodyne</code></pre><p>详见<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">更换主题</a></p><h2 id="3-补充"><a href="#3-补充" class="headerlink" title="3. 补充"></a>3. 补充</h2><h3 id="npm和yarn命令对比"><a href="#npm和yarn命令对比" class="headerlink" title="npm和yarn命令对比"></a>npm和yarn命令对比</h3><table><thead><tr><th align="right">npm</th><th align="left">yarn</th></tr></thead><tbody><tr><td align="right">npm install</td><td align="left">yarn</td></tr><tr><td align="right">npm install react –save</td><td align="left">yarn add react</td></tr><tr><td align="right">npm uninstall react –save</td><td align="left">yarn remove react</td></tr><tr><td align="right">npm install react –save-dev</td><td align="left">yarn add react –dev</td></tr><tr><td align="right">npm update –save</td><td align="left">yarn upgrade</td></tr><tr><td align="right">详见<a href="https://www.jianshu.com/p/254794d5e741" target="_blank" rel="noopener">npm和yarn的区别，我们该如何选择?</a></td><td align="left"></td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hxeo官网</a></p><p><a href="https://summerrouxin.github.io/2018/05/21/build-blog/build-blog/" target="_blank" rel="noopener">基于Hexo搭建博客</a></p><p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">Hexo史上最全搭建教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;因为我是直接在Windows上搭建的，许多网上的攻略侧重从并没有详细描述，遇到了许多问题，所以本文将一些经验记录下来，以供参考。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Hexo-简介&quot;&gt;&lt;a href=&quot;#Hexo-简介&quot; class
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/05/16/hello-world/"/>
+    <id>http://yoursite.com/2020/05/16/hello-world/</id>
+    <published>2020-05-16T09:27:16.301Z</published>
+    <updated>2020-05-16T09:27:16.301Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
